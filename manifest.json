@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Voice-to-Text Anywhere",
+  "version": "1.0",
+  "description": "Convert speech to text and write directly into input boxes.",
+  "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Start Voice to Text",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png"
+  }
+}
