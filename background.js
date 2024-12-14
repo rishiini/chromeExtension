@@ -8,12 +8,12 @@ chrome.action.onClicked.addListener((tab) => {
       () => {
         if (chrome.runtime.lastError) {
           console.error("Error injecting content script:", chrome.runtime.lastError.message);
-          alert("Failed to inject content script. Please reload the page and try again.");
+          // alert("Failed to inject content script. Please reload the page and try again.");
         } else {
           chrome.tabs.sendMessage(tab.id, { action: "start-voice-to-text" }, (response) => {
             if (chrome.runtime.lastError) {
               console.error("Error:", chrome.runtime.lastError.message);
-              alert("The content script is not available. Please reload the page and try again.");
+              // alert("The content script is not available. Please reload the page and try again.");
             } else {
               console.log("Message sent successfully:", response);
             }

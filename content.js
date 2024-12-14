@@ -7,7 +7,7 @@ function startVoiceToText() {
   }
 
   // Initialize the Web Speech API
-  recognition = new webkitSpeechRecognition();
+  // recognition = new webkitSpeechRecognition();
   recognition.continuous = false;
   recognition.interimResults = false;
   recognition.lang = 'en-US';
@@ -36,8 +36,10 @@ function startVoiceToText() {
 }
 
 // Listen for messages from the background script
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "start-voice-to-text") {
+    console.log("Voice-to-text action received");
     startVoiceToText();
+    sendResponse({ status: "started" });
   }
 });

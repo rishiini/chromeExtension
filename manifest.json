@@ -3,7 +3,7 @@
   "name": "Voice-to-Text Anywhere",
   "version": "1.0",
   "description": "Convert speech to text and write directly into input boxes.",
-  "permissions": ["activeTab"],
+  "permissions": ["scripting", "activeTab", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
@@ -14,5 +14,11 @@
   },
   "icons": {
     "48": "icon.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
 }
